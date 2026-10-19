@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Lusweti Agrihub Africa</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F7F2;--sf:#fff;--tx:#14213D;--mu:#5B6670;--bl:#0A3A96;--gr:#0B6E0B;--ye:#F2B33D;--ln:#DDE2DA;--gs:#E7F2E4}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1613;--sf:#18221D;--tx:#EAF0EA;--mu:#9AA8A0;--bl:#7FA6FF;--gr:#6FCB6F;--ln:#2B3A32;--gs:#1E3324}}
+:root[data-theme="dark"]{--bg:#0F1613;--sf:#18221D;--tx:#EAF0EA;--mu:#9AA8A0;--bl:#7FA6FF;--gr:#6FCB6F;--ln:#2B3A32;--gs:#1E3324}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:inherit}html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--tx);font:400 15px/1.5 Montserrat,system-ui,sans-serif}
+.app{max-width:480px;margin:0 auto;padding:0 16px 96px}
+header{padding:18px 0 10px}
+h1{margin:0;font-size:22px;line-height:1.1;font-weight:700;color:var(--bl)}h1 span{color:var(--gr);display:block;font-size:15px;letter-spacing:.02em}
+.tag{margin:6px 0 0;color:var(--mu);font-size:13px}
+.hero{background:var(--gs);border:1px solid var(--ln);border-radius:14px;padding:14px;margin:8px 0 14px}
+.hero b{display:block;font-size:16px;color:var(--gr)}
+h2{font-size:17px;margin:18px 0 8px;font-weight:700}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px}
+.chip{border:1px solid var(--ln);background:var(--sf);color:var(--tx);border-radius:999px;padding:8px 14px;font:500 13px Montserrat,sans-serif;white-space:nowrap;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--bl);border-color:var(--bl);color:#fff}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--sf);border:1px solid var(--ln);border-radius:12px;padding:12px 14px;margin:8px 0}
+.row small{color:var(--mu);display:block;font-size:12px}
+.row b{font-weight:500}
+.btn{background:var(--gr);color:#fff;border:0;border-radius:10px;padding:11px 16px;font:700 14px Montserrat,sans-serif;cursor:pointer}
+.btn.alt{background:var(--bl)}.btn.ghost{background:transparent;color:var(--bl);border:1px solid var(--bl)}
+.qty{display:flex;align-items:center;gap:10px}.qty button{width:34px;height:34px;border-radius:50%;border:1px solid var(--ln);background:var(--sf);color:var(--tx);font-size:18px;cursor:pointer}
+label{display:block;font-size:13px;font-weight:500;margin:12px 0 4px}
+input,select,textarea{width:100%;padding:11px;border:1px solid var(--ln);border-radius:10px;background:var(--sf);color:var(--tx);font:400 15px Montserrat,sans-serif}
+.err{color:#C0392B;font-size:12px;min-height:16px}
+.ok{background:var(--gs);border:1px solid var(--gr);border-radius:12px;padding:14px;margin-top:14px}
+nav{position:fixed;left:0;right:0;bottom:0;background:var(--sf);border-top:1px solid var(--ln);padding-bottom:env(safe-area-inset-bottom,0px)}
+nav div{max-width:480px;margin:0 auto;display:flex}
+nav button{flex:1;border:0;background:none;color:var(--mu);padding:12px 4px;font:500 12px Montserrat,sans-serif;cursor:pointer;border-top:3px solid transparent}
+nav button[aria-current="page"]{color:var(--bl);border-top-color:var(--gr);font-weight:700}
+.bar{position:sticky;bottom:64px;background:var(--bl);color:#fff;border-radius:12px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+.note{color:var(--mu);font-size:12px;margin-top:18px}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--ye);outline-offset:2px}
+</style></head><body><div class="app">
+<header><h1>Lusweti<span>Agrihub Africa</span></h1><p class="tag">From Seed to Market, From Cow to Cup</p></header>
+<main id="view"></main>
+<p class="note">Prototype with sample lessons, prices and providers.</p></div>
+<nav><div id="nav"></div></nav>
+<script>
+var tabs=[["learn","Learn"],["shop","Shop"],["expert","Ask expert"],["people","Providers"]];
+var L=[["Crops","Soil testing: what to test and when","Upimaji wa udongo","6 min"],["Crops","Managing fall armyworm in maize","Kudhibiti viwavi jeshi kwenye mahindi","8 min"],["Crops","Harvest and post-harvest handling","Uvunaji na utunzaji baada ya mavuno","7 min"],["Livestock","Dairy cow vaccination calendar","Ratiba ya chanjo ya ng'ombe wa maziwa","9 min"],["Livestock","Napier and fodder management","Usimamizi wa nyasi na malisho","6 min"],["Livestock","Preventing mastitis","Kuzuia ugonjwa wa kiwele","5 min"],["Finance","Preparing a farm loan plan","Kuandaa mpango wa mkopo wa shamba","10 min"],["Finance","Keeping simple farm records","Kutunza kumbukumbu za shamba","6 min"]];
+var P=[["Dairy meal, 70 kg",2900],["Maize seed, 2 kg",650],["CAN fertiliser, 50 kg",3600],["Tick spray, 500 ml",750],["Mineral lick, 5 kg",900],["Napier cuttings, bundle",300]];
+var V=[["Githiga Vet Clinic","Vet"],["Githunguri AI Services","AI provider"],["Kiambu Agrovet Supplies","Agrovet"],["Kiambu Dairy Buyers","Buyer"]];
+var S={tab:"learn",cat:"All",sw:false,pt:"All",cart:{},done:null,ask:null};
+var $=function(i){return document.getElementById(i)};
+function esc(t){var d=document.createElement("div");d.textContent=t;return d.innerHTML}
+function chips(list,cur,fn){return '<div class="chips">'+list.map(function(c){return '<button class="chip" aria-pressed="'+(c==cur)+'" onclick="'+fn+'(\''+c+'\')">'+c+'</button>'}).join("")+'</div>'}
+function total(){var t=0,n=0;P.forEach(function(p,i){var q=S.cart[i]||0;t+=q*p[1];n+=q});return[t,n]}
+function render(){
+$("nav").innerHTML=tabs.map(function(t){return '<button onclick="go(\''+t[0]+'\')" '+(S.tab==t[0]?'aria-current="page"':'')+'>'+t[1]+'</button>'}).join("");
+var h="";
+if(S.tab=="learn"){
+h='<div class="hero"><b>Learn at your own pace</b>Short lessons from an extension officer, on your phone.</div>'+chips(["All","Crops","Livestock","Finance"],S.cat,"setCat")+'<div class="chips" style="margin-top:4px"><button class="chip" aria-pressed="'+S.sw+'" onclick="S.sw=!S.sw;render()">Kiswahili</button></div>';
+L.filter(function(l){return S.cat=="All"||l[0]==S.cat}).forEach(function(l){h+='<div class="row"><div><b>'+esc(S.sw?l[2]:l[1])+'</b><small>'+l[0]+' · '+l[3]+'</small></div><button class="btn ghost" onclick="alert(\'Video lessons will play here once your content is uploaded.\')">Watch</button></div>'});
+}
+if(S.tab=="shop"){
+h='<h2>Farm inputs</h2>';
+P.forEach(function(p,i){var q=S.cart[i]||0;h+='<div class="row"><div><b>'+p[0]+'</b><small>KES '+p[1].toLocaleString()+'</small></div><div class="qty"><button aria-label="Remove one '+p[0]+'" onclick="chg('+i+',-1)">−</button><span>'+q+'</span><button aria-label="Add one '+p[0]+'" onclick="chg('+i+',1)">+</button></div></div>'});
+var t=total();
+if(S.done){h+='<div class="ok"><b>Order placed</b><br>'+esc(S.done)+'</div>'}
+else if(t[1]){h+='<div class="bar"><span>'+t[1]+' items · KES '+t[0].toLocaleString()+'</span><button class="btn" style="background:var(--ye);color:#14213D" onclick="order()">Place order</button></div>'}
+else h+='<p class="note">Add items to start an order.</p>';
+}
+if(S.tab=="expert"){
+h='<h2>Ask an expert</h2>';
+if(S.ask){h+='<div class="ok"><b>Question sent</b><br>'+esc(S.ask)+'</div><button class="btn ghost" style="margin-top:12px" onclick="S.ask=null;render()">Ask another question</button>'}
+else h+='<label for="n">Your name</label><input id="n" autocomplete="name"><label for="ph">Phone number</label><input id="ph" type="tel" inputmode="tel" placeholder="07XX XXX XXX"><label for="tp">Topic</label><select id="tp"><option>Crop production</option><option>Livestock</option><option>Finance and loans</option><option>Inputs and markets</option></select><label for="q">Your question</label><textarea id="q" rows="4"></textarea><div class="err" id="er"></div><button class="btn" onclick="sendQ()">Send question</button>';
+}
+if(S.tab=="people"){
+h='<h2>Service providers</h2>'+chips(["All","Vet","AI provider","Agrovet","Buyer"],S.pt,"setPt");
+V.filter(function(v){return S.pt=="All"||v[1]==S.pt}).forEach(function(v){h+='<div class="row"><div><b>'+v[0]+'</b><small>'+v[1]+' · Githunguri, Kiambu</small></div><button class="btn alt" onclick="alert(\'We will connect you with '+v[0]+'.\')">Request contact</button></div>'});
+}
+$("view").innerHTML=h}
+function go(t){S.tab=t;render();window.scrollTo(0,0)}
+function setCat(c){S.cat=c;render()}function setPt(c){S.pt=c;render()}
+function chg(i,d){S.done=null;S.cart[i]=Math.max(0,(S.cart[i]||0)+d);render()}
+function order(){var t=total();S.done="KES "+t[0].toLocaleString()+" for "+t[1]+" items. You will get an M-Pesa prompt on your phone to pay, then your supplier will arrange delivery.";S.cart={};render()}
+function sendQ(){var n=$("n").value.trim(),p=$("ph").value.replace(/\s/g,""),q=$("q").value.trim();
+if(!n||!/^(\+254|0)[17]\d{8}$/.test(p)||q.length<5){$("er").textContent=!n?"Enter your name.":!/^(\+254|0)[17]\d{8}$/.test(p)?"Enter a valid Kenyan phone number.":"Type your question.";return}
+S.ask="Thank you, "+n+". An officer will call you on "+p+" about your "+$("tp").value.toLowerCase()+" question.";render()}
+render();
+</script></body></html>
